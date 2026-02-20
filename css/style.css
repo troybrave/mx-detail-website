@@ -230,6 +230,7 @@ p { margin-bottom: 1rem; }
   display: flex;
   align-items: center;
   gap: 32px;
+  height: 100%;
 }
 .nav-links a {
   font-family: var(--font-body);
@@ -241,7 +242,6 @@ p { margin-bottom: 1rem; }
   position: relative;
   display: flex;
   align-items: center;
-  height: 100%;
 }
 .nav-links a::after {
   content: '';

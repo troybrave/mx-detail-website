@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Your Detail · Most Excellent Auto Detail</title>
   <meta name="description" content="Book your auto detailing appointment with MX Detail. Serving Tampa and Orlando with premium detailing, ceramic coating, and mobile services.">
-  <link rel="canonical" href="https://mxdetail.com/book-now.html">
+  <link rel="canonical" href="https://mxdetail.endlesswinning.com/book-now.html">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Book Your Detail · Most Excellent Auto Detail">
   <meta property="og:description" content="Schedule your detailing appointment online. Tampa & Orlando locations.">
-  <meta property="og:image" content="https://mxdetail.com/assets/images/og-image.jpg">
-  <meta property="og:url" content="https://mxdetail.com/book-now.html">
+  <meta property="og:image" content="https://mxdetail.endlesswinning.com/assets/images/og-image.jpg">
+  <meta property="og:url" content="https://mxdetail.endlesswinning.com/book-now.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -86,21 +86,123 @@
           <span class="section-badge">Schedule Online</span>
           <h2>Reserve Your Detail</h2>
           <div class="section-divider"></div>
-          <p>Fill out the form below to book your detailing appointment. We will confirm your booking within 24 hours.</p>
+          <p class="section-subtitle">Fill out the form below and we'll confirm your appointment within 24 hours.</p>
         </div>
 
-        <div class="jotform-embed" style="max-width: 800px; margin: 48px auto 0;">
-          <iframe id="JotFormIFrame-253117408114145" title="MX Detail Booking Form"
-            onload="window.parent.scrollTo(0,0)"
-            allowtransparency="true" allow="geolocation; microphone; camera; fullscreen"
-            src="https://form.jotform.com/253117408114145"
-            frameborder="0" style="min-width:100%; max-width:100%; height:700px; border:none;"
-            scrolling="no">
-          </iframe>
-        </div>
+        <form id="bookingForm" class="contact-form" novalidate>
+          <!-- Name Row -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required autocomplete="given-name" placeholder="John">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required autocomplete="family-name" placeholder="Smith">
+            </div>
+          </div>
+
+          <!-- Contact Row -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(813) 555-0123">
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="john@example.com">
+            </div>
+          </div>
+
+          <!-- Vehicle Row -->
+          <div class="form-row" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="form-group">
+              <label for="vehicleYear">Vehicle Year</label>
+              <input type="text" id="vehicleYear" name="vehicleYear" placeholder="2024" maxlength="4" inputmode="numeric">
+            </div>
+            <div class="form-group">
+              <label for="vehicleMake">Vehicle Make</label>
+              <input type="text" id="vehicleMake" name="vehicleMake" placeholder="BMW">
+            </div>
+            <div class="form-group">
+              <label for="vehicleModel">Vehicle Model</label>
+              <input type="text" id="vehicleModel" name="vehicleModel" placeholder="X5">
+            </div>
+          </div>
+
+          <!-- Service & Location Row -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="">Select a service...</option>
+                <optgroup label="Full Packages">
+                  <option value="Express Wash">Express Wash</option>
+                  <option value="Mini Detail">The Mini Detail</option>
+                  <option value="Full Detail">The Full Detail</option>
+                </optgroup>
+                <optgroup label="Interior Only">
+                  <option value="Ultimate Interior Detail">Ultimate Interior Detail</option>
+                </optgroup>
+                <optgroup label="Exterior Only">
+                  <option value="Shine & Protect">Shine & Protect Detail</option>
+                  <option value="Gloss Revival Exterior">Gloss Revival Exterior Detail</option>
+                </optgroup>
+                <optgroup label="Ceramic Coating">
+                  <option value="Ceramic Pro Sport">Ceramic Pro Sport</option>
+                  <option value="Ceramic Pro Bronze">Ceramic Pro Bronze</option>
+                  <option value="Ceramic Pro Silver">Ceramic Pro Silver</option>
+                  <option value="Ceramic Pro Gold">Ceramic Pro Gold</option>
+                </optgroup>
+                <optgroup label="Other">
+                  <option value="Other">Other / Not Sure</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="location">Preferred Location</label>
+              <select id="location" name="location">
+                <option value="">Select location...</option>
+                <option value="Tampa">Tampa</option>
+                <option value="Orlando">Orlando</option>
+                <option value="Mobile - Come to Me">Mobile — Come to Me</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Date -->
+          <div class="form-group">
+            <label for="preferredDate">Preferred Date</label>
+            <input type="date" id="preferredDate" name="preferredDate">
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label for="message">Additional Notes</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your vehicle's condition, specific concerns, or any special requests..."></textarea>
+          </div>
+
+          <!-- Honeypot -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <!-- Submit -->
+          <div class="text-center" style="margin-top: 8px;">
+            <button type="submit" id="submitBtn" class="btn btn-cta btn-lg" style="min-width: 280px;">
+              Request Appointment
+            </button>
+          </div>
+
+          <!-- Status Messages -->
+          <div id="formStatus" style="margin-top: 24px; text-align: center; display: none;">
+            <p id="formMessage" style="font-size: 1.1rem; font-weight: 500;"></p>
+          </div>
+        </form>
 
         <div class="text-center" style="margin-top: 48px;">
-          <p style="font-size: 1.125rem; color: #666;">Having trouble? Call us directly:</p>
+          <p style="font-size: 1.125rem; color: #666;">Prefer to call? Reach us directly:</p>
           <p style="margin-top: 12px;">
             <a href="tel:8137588918" class="btn btn-primary">Tampa: (813) 758-8918</a>
             <a href="tel:8134394361" class="btn btn-primary" style="margin-left: 12px;">Orlando: (813) 439-4361</a>
@@ -165,6 +267,105 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+
+  <script>
+  (function() {
+    var ENDPOINT = 'https://jriquvajwzarvrvlgpem.supabase.co/functions/v1/mx-detail-booking';
+    var form = document.getElementById('bookingForm');
+    var btn = document.getElementById('submitBtn');
+    var statusDiv = document.getElementById('formStatus');
+    var msgEl = document.getElementById('formMessage');
+
+    if (!form) return;
+
+    // Set min date to today
+    var dateInput = document.getElementById('preferredDate');
+    if (dateInput) {
+      var today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Honeypot check
+      var hp = document.getElementById('website');
+      if (hp && hp.value) return;
+
+      // Basic validation
+      var firstName = form.firstName.value.trim();
+      var lastName = form.lastName.value.trim();
+      var phone = form.phone.value.trim();
+      var email = form.email.value.trim();
+
+      if (!firstName || !lastName || !phone || !email) {
+        showStatus('Please fill in all required fields.', '#e63946');
+        return;
+      }
+
+      // Email validation
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showStatus('Please enter a valid email address.', '#e63946');
+        return;
+      }
+
+      // Phone validation (at least 10 digits)
+      if (phone.replace(/\D/g, '').length < 10) {
+        showStatus('Please enter a valid phone number.', '#e63946');
+        return;
+      }
+
+      // Disable button
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+      btn.style.opacity = '0.7';
+
+      var payload = {
+        firstName: firstName,
+        lastName: lastName,
+        phone: phone,
+        email: email,
+        service: form.service.value,
+        vehicleYear: form.vehicleYear.value.trim(),
+        vehicleMake: form.vehicleMake.value.trim(),
+        vehicleModel: form.vehicleModel.value.trim(),
+        location: form.location.value,
+        preferredDate: form.preferredDate.value,
+        message: form.message.value.trim()
+      };
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(res) { return res.json().then(function(d) { return { ok: res.ok, data: d }; }); })
+      .then(function(result) {
+        if (result.ok) {
+          showStatus('Your appointment request has been submitted! We will contact you within 24 hours to confirm.', '#007cba');
+          form.reset();
+        } else {
+          showStatus(result.data.error || 'Something went wrong. Please try again or call us directly.', '#e63946');
+        }
+      })
+      .catch(function() {
+        showStatus('Network error. Please check your connection or call us directly.', '#e63946');
+      })
+      .finally(function() {
+        btn.disabled = false;
+        btn.textContent = 'Request Appointment';
+        btn.style.opacity = '1';
+      });
+    });
+
+    function showStatus(msg, color) {
+      statusDiv.style.display = 'block';
+      msgEl.textContent = msg;
+      msgEl.style.color = color;
+      statusDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  })();
+  </script>
 
 </body>
 </html>
