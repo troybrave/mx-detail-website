@@ -4,6 +4,60 @@
 /* Layered on top of style.css for light mode        */
 /* ══════════════════════════════════════════════════ */
 
+/* ── Fixed hero — content scrolls over the photo ── */
+.hero {
+  min-height: 70vh !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0 !important;
+}
+
+/* Spacer so content starts after the hero */
+.hero + .divider-diagonal,
+.hero + .divider-angular {
+  margin-top: 70vh;
+}
+
+/* All content after hero scrolls over it */
+.divider-diagonal,
+.divider-angular,
+.section,
+.parallax-cta,
+.banner-cta,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Inner hero (Ceramic Pro, etc.) */
+.hero-inner {
+  min-height: 50vh !important;
+}
+.hero-inner + .divider-diagonal,
+.hero-inner + .divider-angular,
+.hero-inner + .section {
+  margin-top: 50vh;
+}
+
+/* Disable fixed hero on mobile — can cause jank */
+@media (max-width: 768px) {
+  .hero {
+    position: relative !important;
+    z-index: auto !important;
+  }
+  .hero + .divider-diagonal,
+  .hero + .divider-angular {
+    margin-top: 0;
+  }
+  .hero-inner + .divider-diagonal,
+  .hero-inner + .divider-angular,
+  .hero-inner + .section {
+    margin-top: 0;
+  }
+}
+
 /* ── Angular Dividers ── */
 .divider-angular {
   width: 100%;
