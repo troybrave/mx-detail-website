@@ -20,7 +20,7 @@
   margin-top: 70vh;
 }
 
-/* All content after hero scrolls over it */
+/* All content after hero scrolls over it — must have opaque backgrounds */
 .divider-diagonal,
 .divider-angular,
 .section,
@@ -29,6 +29,25 @@
 .footer {
   position: relative;
   z-index: 1;
+}
+
+/* Give sections solid backgrounds so hero doesn't bleed through */
+.section {
+  background: #ffffff;
+}
+.section-light {
+  background: var(--color-gray-light, #f5f5f5);
+}
+.divider-diagonal,
+.divider-angular {
+  background: #ffffff;
+}
+/* When divider sits between dark and light sections, match accordingly */
+.section-dark + .divider-angular,
+.section-dark + .divider-diagonal,
+.banner-cta + .divider-angular,
+.parallax-cta + .divider-angular {
+  background: transparent;
 }
 
 /* Inner hero (Ceramic Pro, etc.) */
@@ -146,6 +165,65 @@
   .hero-inner + .section {
     margin-top: 0;
   }
+}
+
+/* ── Benefit Cards — hover glow ── */
+.benefit-card {
+  position: relative;
+  padding: 32px 20px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.4s ease;
+  cursor: default;
+}
+.benefit-card:hover {
+  border-color: rgba(0,124,186,0.15);
+  background: rgba(0,124,186,0.04);
+  box-shadow: 0 0 25px rgba(0,140,220,0.12);
+}
+.benefit-card:hover h3 {
+  color: #007cba;
+}
+.benefit-icon {
+  transition: all 0.4s ease;
+}
+.benefit-card:hover .benefit-icon {
+  background: rgba(0,140,220,0.15);
+  border-color: rgba(0,160,230,0.4);
+  box-shadow: 0 0 18px rgba(0,140,220,0.25);
+  color: #007cba;
+}
+
+/* ── Coating Cards — featured glow ── */
+.coating-featured {
+  border-color: rgba(0,160,230,0.5) !important;
+  box-shadow:
+    0 0 0 2px rgba(0,140,220,0.3),
+    0 0 25px rgba(0,140,220,0.15),
+    0 0 50px rgba(0,120,200,0.08) !important;
+  animation: cardGlow 4s ease-in-out infinite;
+}
+@keyframes cardGlow {
+  0%, 100% {
+    border-color: rgba(0,160,230,0.4);
+    box-shadow:
+      0 0 0 2px rgba(0,140,220,0.2),
+      0 0 20px rgba(0,140,220,0.1),
+      0 0 40px rgba(0,120,200,0.05);
+  }
+  50% {
+    border-color: rgba(0,170,240,0.6);
+    box-shadow:
+      0 0 0 2px rgba(0,150,230,0.35),
+      0 0 30px rgba(0,150,230,0.2),
+      0 0 60px rgba(0,130,210,0.1);
+  }
+}
+.coating-card:hover {
+  box-shadow: 0 4px 20px rgba(0,124,186,0.15);
+}
+.coating-badge {
+  box-shadow: 0 0 12px rgba(0,124,186,0.3);
 }
 
 /* ── Angular Dividers ── */
