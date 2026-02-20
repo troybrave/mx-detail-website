@@ -1,0 +1,486 @@
+/* ══════════════════════════════════════════════════ */
+/* MX Detail — UI Enhancements                      */
+/* Card layout, pill nav, glow buttons, dividers     */
+/* Layered on top of style.css for light mode        */
+/* ══════════════════════════════════════════════════ */
+
+/* ── Angular Dividers ── */
+.divider-angular {
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+  z-index: 1;
+}
+.divider-angular svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Glow Button Animation ── */
+@keyframes btnGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(0,124,186,0.25), 0 0 24px rgba(0,124,186,0.1); }
+  50% { box-shadow: 0 0 20px rgba(0,124,186,0.4), 0 0 40px rgba(0,124,186,0.15); }
+}
+@keyframes btnGlowRed {
+  0%, 100% { box-shadow: 0 0 12px rgba(230,57,70,0.25), 0 0 24px rgba(230,57,70,0.1); }
+  50% { box-shadow: 0 0 20px rgba(230,57,70,0.4), 0 0 40px rgba(230,57,70,0.15); }
+}
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+.btn-glow {
+  animation: btnGlow 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: none;
+  pointer-events: none;
+}
+.btn-glow:hover::after {
+  animation: shimmer 0.6s ease-out;
+}
+.btn-glow:hover {
+  transform: translateY(-3px);
+}
+/* Red glow for CTA buttons */
+.btn-cta.btn-glow,
+.nav-cta.btn-glow {
+  animation: btnGlowRed 3s ease-in-out infinite;
+}
+
+/* ── Hero Tagline & Buttons — Persistent Backdrop Blur ── */
+.hero-tagline {
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: inline-block;
+  padding: 10px 28px;
+  border-radius: 40px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.hero .btn-group {
+  position: relative;
+  z-index: 3;
+}
+.hero .btn-outline {
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-color: rgba(255,255,255,0.5);
+}
+.hero .btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--color-white);
+}
+
+/* ══════════════════════════════════════ */
+/* PACKAGE CARD LAYOUT                    */
+/* ══════════════════════════════════════ */
+
+/* ── Category Pill Nav ── */
+.pkg-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+.pkg-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  min-height: 44px;
+}
+.pkg-pill:hover {
+  color: var(--color-white);
+  background: rgba(0,124,186,0.15);
+  border-color: rgba(0,124,186,0.4);
+}
+.pkg-pill.active {
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgba(0,124,186,0.35);
+}
+
+/* ── Scroll Track (mobile swipe container) ── */
+.pkg-scroll-track {
+  width: 100%;
+}
+
+/* ── Card Grid ── */
+.pkg-card-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.pkg-card-row--2col {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
+  margin: 0 auto;
+}
+.pkg-card-row--1col {
+  grid-template-columns: 1fr;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ── Package Card ── */
+.pkg-card {
+  background: linear-gradient(145deg, #1a2a3d, #1e2d40);
+  border: 1px solid rgba(0,124,186,0.15);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.pkg-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  border-color: rgba(0,124,186,0.4);
+}
+
+/* ── Popular / Featured Card ── */
+@keyframes cardGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(0,124,186,0.2), 0 0 30px rgba(0,124,186,0.08); }
+  50% { box-shadow: 0 0 25px rgba(0,124,186,0.35), 0 0 50px rgba(0,124,186,0.12); }
+}
+.pkg-card-popular {
+  border-color: var(--color-primary);
+  animation: cardGlow 4s ease-in-out infinite;
+}
+.pkg-popular-badge {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  text-align: center;
+  padding: 6px 0;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 2;
+}
+
+/* ── Card Header ── */
+.pkg-card-header {
+  text-align: center;
+  padding: 32px 20px 16px;
+}
+.pkg-card-popular .pkg-card-header {
+  padding-top: 44px;
+}
+.pkg-tier-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-primary-light);
+  margin-bottom: 6px;
+}
+.pkg-card-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.pkg-card-price {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+}
+.pkg-card-price strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--color-white);
+}
+.pkg-card-subtitle {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* ── Card Body ── */
+.pkg-card-body {
+  flex: 1;
+  padding: 0 20px 16px;
+}
+
+/* ── Feature List ── */
+.pkg-card-features {
+  padding: 0 0 12px;
+}
+.pkg-card-features li {
+  padding: 5px 0;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+.pkg-card-features li::before {
+  content: '';
+  width: 6px; height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+.pkg-feature-highlight {
+  color: rgba(255,255,255,0.95) !important;
+  font-weight: 500;
+}
+.pkg-feature-highlight::before {
+  background: var(--color-primary-light) !important;
+  box-shadow: 0 0 6px rgba(0,124,186,0.5);
+}
+
+/* ── "Everything in X, plus:" Badge ── */
+.pkg-includes-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-primary-light);
+  background: rgba(0,124,186,0.1);
+  border: 1px solid rgba(0,124,186,0.25);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+.pkg-includes-badge svg {
+  flex-shrink: 0;
+  color: var(--color-primary-light);
+}
+
+/* ── Card Price Table ── */
+.pkg-card-prices {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  background: rgba(0,0,0,0.15);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.pkg-card-prices td {
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  border-bottom: 1px solid rgba(0,124,186,0.08);
+}
+.pkg-card-prices td:first-child {
+  color: rgba(255,255,255,0.6);
+}
+.pkg-card-prices td:last-child {
+  text-align: right;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-white);
+  font-size: 0.95rem;
+}
+.pkg-card-prices tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Disclaimer ── */
+.pkg-card .pkg-disclaimer {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  font-style: italic;
+  margin: 6px 0 0;
+  opacity: 1;
+}
+
+/* ── Upgrade Box ── */
+.pkg-card .pkg-upgrade {
+  background: linear-gradient(135deg, rgba(0,124,186,0.15), rgba(6,100,145,0.08));
+  border-left: 3px solid var(--color-primary-light);
+  padding: 12px 14px;
+  margin: 8px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.8);
+}
+.pkg-card .pkg-upgrade strong {
+  color: var(--color-primary-light);
+}
+
+/* ── Card Footer ── */
+.pkg-card-footer {
+  padding: 0 20px 20px;
+  margin-top: auto;
+}
+.pkg-card-footer .btn {
+  width: 100%;
+}
+
+/* ── Marine Card ── */
+.pkg-card-marine {
+  border-color: rgba(0,144,217,0.3);
+}
+.pkg-card-marine:hover {
+  border-color: rgba(0,144,217,0.6);
+}
+.pkg-custom-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  background: rgba(0,124,186,0.08);
+  border: 1px solid rgba(0,124,186,0.15);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+.pkg-custom-note svg {
+  flex-shrink: 0;
+  color: var(--color-primary-light);
+  margin-top: 2px;
+}
+
+/* ── Swipe Hint (mobile only) ── */
+.pkg-swipe-hint {
+  display: none;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ══════════════════════════════════════ */
+/* FOOTER SOCIAL ICONS FIX               */
+/* ══════════════════════════════════════ */
+.social-icons a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.1) !important;
+  color: #ffffff !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.social-icons a:hover {
+  background: var(--color-primary) !important;
+  transform: translateY(-3px);
+}
+.social-icons a svg {
+  width: 20px !important;
+  height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  flex-shrink: 0 !important;
+  fill: currentColor !important;
+  color: inherit !important;
+  display: block !important;
+  margin: 0 !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* ══════════════════════════════════════ */
+/* RESPONSIVE — CARD LAYOUT              */
+/* ══════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .pkg-card-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile — horizontal swipe */
+@media (max-width: 900px) {
+  .pkg-swipe-hint {
+    display: block;
+  }
+  .pkg-scroll-track {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 8px;
+  }
+  .pkg-scroll-track::-webkit-scrollbar {
+    display: none;
+  }
+  .pkg-card-row,
+  .pkg-card-row--2col {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    max-width: none;
+  }
+  .pkg-card {
+    min-width: 280px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+  .pkg-nav {
+    gap: 8px;
+  }
+  .pkg-pill {
+    padding: 8px 16px;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pkg-card {
+    min-width: 260px;
+  }
+  .divider-angular {
+    height: 50px;
+  }
+  .hero-tagline {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
+}
