@@ -1,39 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MX Detail</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #111;
-            color: #fff;
-        }
-        .hero {
-            text-align: center;
-            padding: 2rem;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-        p {
-            font-size: 1.2rem;
-            color: #aaa;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Most Excellent Auto Detail · Tampa & Orlando's Premier Detailing</title>
+  <meta name="description" content="Professional auto detailing, ceramic coating, and paint protection in Tampa & Orlando. Ceramic Pro certified. Book your detail today.">
+  <link rel="canonical" href="https://mxdetail.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Most Excellent Auto Detail · Tampa & Orlando's Premier Detailing">
+  <meta property="og:description" content="Professional auto detailing, ceramic coating, and paint protection in Tampa & Orlando. Ceramic Pro certified.">
+  <meta property="og:image" content="https://mxdetail.com/assets/images/og-image.jpg">
+  <meta property="og:url" content="https://mxdetail.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Most Excellent Auto Detail",
+    "alternateName": "MX Detail",
+    "url": "https://mxdetail.com",
+    "description": "Professional auto detailing, ceramic coating, and paint protection serving Tampa and Orlando, FL.",
+    "telephone": ["+1-813-758-8918", "+1-813-439-4361"],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "07:00",
+      "closes": "18:00"
+    },
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampa",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Orlando",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      }
+    ],
+    "sameAs": [
+      "https://facebook.com/mostexcellentdetail/",
+      "https://instagram.com/officialmxdetail/",
+      "https://yelp.com/biz/most-excellent-auto-detailing-orlando"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Auto Detailing Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ceramic Pro Coating"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Detailing"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Detailing"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Detail"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Maintenance Detail"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mobile Detailing"}}
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
-    <div class="hero">
-        <h1>MX Detail</h1>
-        <p>Website coming soon.</p>
+
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ═══ SECTION 1: Top Info Bar ═══ -->
+  <div class="top-bar" role="complementary" aria-label="Business hours">
+    <div class="container">
+      <span class="top-bar-hours">Mon–Sat 7am–6pm &nbsp;|&nbsp; Closed Sundays</span>
     </div>
+  </div>
+
+  <!-- ═══ SECTION 2: Navbar ═══ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="MX Detail Home">
+        <!-- Replace with logo image when available -->
+        <img src="assets/images/logo.png" alt="Most Excellent Auto Detail" class="nav-logo-img">
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="ceramic-pro.html">Ceramic Pro</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+        <a href="application.html">Careers</a>
+        <a href="book-now.html" class="nav-cta">Book Now</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-label="Mobile menu">
+    <nav class="mobile-menu-nav">
+      <a href="index.html">Home</a>
+      <a href="ceramic-pro.html">Ceramic Pro</a>
+      <a href="packages.html">Packages</a>
+      <a href="contact.html">Contact</a>
+      <a href="book-now.html">Book Now</a>
+      <a href="application.html">Careers</a>
+    </nav>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══ SECTION 3: Hero Slideshow ═══ -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-slideshow">
+        <div class="hero-slide active" style="background-image: url('assets/images/hero-mercedes-mansion.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('assets/images/hero-white-corvette.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('assets/images/hero-red-corvette.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('assets/images/hero-blue-denali.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('assets/images/hero-corvette.jpg');"></div>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <h1>Most Excellent <span class="accent">Auto Detail</span></h1>
+        <p class="hero-tagline">Preserve &nbsp;|&nbsp; Protect &nbsp;|&nbsp; Enhance</p>
+        <div class="btn-group">
+          <a href="tel:8137588918" class="btn btn-primary">Call Now</a>
+          <a href="book-now.html" class="btn btn-outline">Book Online</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 4: Diagonal Divider ═══ -->
+    <div class="divider-diagonal" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <line x1="100" y1="60" x2="1440" y2="0" stroke="#007cba" stroke-width="2" opacity="0.4"/>
+        <line x1="0" y1="60" x2="1340" y2="5" stroke="#007cba" stroke-width="1.5" opacity="0.2"/>
+        <line x1="200" y1="60" x2="1440" y2="10" stroke="#007cba" stroke-width="1" opacity="0.15"/>
+      </svg>
+    </div>
+
+    <!-- ═══ SECTION 5: Services Gallery ═══ -->
+    <section class="section" id="services" aria-label="Our Services">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-badge">Our Services</span>
+          <h2>What We Offer</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="gallery-grid">
+          <a href="ceramic-pro.html" class="gallery-card fade-up">
+            <img src="assets/images/gallery-cadillac-shop.jpg" alt="Cadillac with mirror finish after ceramic coating in MX Detail shop" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay">
+              <h3>Ceramic Coating</h3>
+              <p>Nano-ceramic protection</p>
+            </div>
+          </a>
+          <a href="packages.html#exterior" class="gallery-card fade-up">
+            <img src="assets/images/gallery-porsche-gt3rs.jpg" alt="Red Porsche GT3 RS with flawless paint on paver driveway" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay">
+              <h3>Exterior Detail</h3>
+              <p>Paint correction &amp; polish</p>
+            </div>
+          </a>
+          <a href="packages.html#interior" class="gallery-card fade-up">
+            <img src="assets/images/gallery-red-interior.jpg" alt="Pristine red and black leather interior after full detail" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay">
+              <h3>Interior Detail</h3>
+              <p>Deep clean & restore</p>
+            </div>
+          </a>
+          <a href="packages.html#full-detail" class="gallery-card fade-up">
+            <img src="assets/images/gallery-full-detail.png" alt="Full detail before and after transformation on BMW" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay">
+              <h3>Full Detail</h3>
+              <p>Complete transformation</p>
+            </div>
+          </a>
+          <a href="packages.html#exterior" class="gallery-card fade-up">
+            <img src="assets/images/gallery-red-truck.jpg" alt="Red Ford truck freshly detailed with polished wheels" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay">
+              <h3>Truck Detail</h3>
+              <p>Cars, trucks &amp; SUVs</p>
+            </div>
+          </a>
+          <a href="packages.html#specialty" class="gallery-card fade-up">
+            <img src="assets/images/gallery-yacht-detail.jpg" alt="Luxury yacht with gleaming hull after marine detailing" width="400" height="400" loading="lazy">
+            <div class="gallery-overlay">
+              <h3>Marine Detail</h3>
+              <p>Boats &amp; yachts</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 6: Reviews Placeholder ═══ -->
+    <section class="section section-light reviews-section" id="reviews" aria-label="Customer Reviews">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-badge">Testimonials</span>
+          <h2>What Our Customers Say</h2>
+          <div class="section-divider"></div>
+        </div>
+        <!-- Elfsight widget container — uncomment and add widget ID when ready -->
+        <!-- <div class="elfsight-app-XXXXXXXX" data-elfsight-app-lazy></div> -->
+        <!-- <script src="https://static.elfsight.com/platform/platform.js" async></script> -->
+
+        <!-- Placeholder review cards -->
+        <div class="reviews-grid">
+          <div class="review-card fade-up">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Best detailing service in Tampa. My car has never looked better. The ceramic coating is absolutely incredible — water just beads right off."</p>
+            <p class="review-author">— Tampa Customer</p>
+          </div>
+          <div class="review-card fade-up">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"The mobile detailing service is so convenient. They came right to my office and the results were outstanding. Highly recommend MX Detail!"</p>
+            <p class="review-author">— Orlando Customer</p>
+          </div>
+          <div class="review-card fade-up">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Professional, thorough, and meticulous. They treated my car like it was their own. Will definitely be coming back for regular maintenance."</p>
+            <p class="review-author">— Satisfied Client</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 7: Parallax CTA ═══ -->
+    <section class="parallax-cta" style="background-image: url('assets/images/parallax-tesla-coating.jpg');" aria-label="Call to action">
+      <div class="parallax-overlay"></div>
+      <div class="parallax-content container">
+        <!-- Replace with logo when available -->
+        <img src="assets/images/logo.png" alt="MX Detail logo" class="parallax-logo" loading="lazy">
+        <h2>Tampa & Orlando's Premier Auto Detailing</h2>
+        <div class="social-icons">
+          <a href="https://facebook.com/mostexcellentdetail/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/officialmxdetail/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+          </a>
+          <a href="https://yelp.com/biz/most-excellent-auto-detailing-orlando" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
+            <svg viewBox="0 0 16 16"><path d="m4.188 10.095.736-.17.073-.02A.813.813 0 0 0 5.45 8.65a1 1 0 0 0-.3-.258 3 3 0 0 0-.428-.198l-.808-.295a76 76 0 0 0-1.364-.493C2.253 7.3 2 7.208 1.783 7.14c-.041-.013-.087-.025-.124-.038a2.1 2.1 0 0 0-.606-.116.72.72 0 0 0-.572.245 2 2 0 0 0-.105.132 1.6 1.6 0 0 0-.155.309c-.15.443-.225.908-.22 1.376.002.423.013.966.246 1.334a.8.8 0 0 0 .22.24c.166.114.333.129.507.141.26.019.513-.045.764-.103l2.447-.566zm8.219-3.911a4.2 4.2 0 0 0-.8-1.14 1.6 1.6 0 0 0-.275-.21 2 2 0 0 0-.15-.073.72.72 0 0 0-.621.031c-.142.07-.294.182-.496.37-.028.028-.063.06-.094.089-.167.156-.353.35-.574.575q-.51.516-1.01 1.042l-.598.62a3 3 0 0 0-.298.365 1 1 0 0 0-.157.364.8.8 0 0 0 .007.301q0 .007.003.013a.81.81 0 0 0 .945.616l.074-.014 3.185-.736c.251-.058.506-.112.732-.242.151-.088.295-.175.394-.35a.8.8 0 0 0 .093-.313c.05-.434-.178-.927-.36-1.308M6.706 7.523c.23-.29.23-.722.25-1.075.07-1.181.143-2.362.201-3.543.022-.448.07-.89.044-1.34-.022-.372-.025-.799-.26-1.104C6.528-.077 5.644-.033 5.04.05q-.278.038-.553.104a8 8 0 0 0-.543.149c-.58.19-1.393.537-1.53 1.204-.078.377.106.763.249 1.107.173.417.41.792.625 1.185.57 1.036 1.15 2.066 1.728 3.097.172.308.36.697.695.857q.033.015.068.025c.15.057.313.068.469.032l.028-.007a.8.8 0 0 0 .377-.226zm-.276 3.161a.74.74 0 0 0-.923-.234 1 1 0 0 0-.145.09 2 2 0 0 0-.346.354c-.026.033-.05.077-.08.104l-.512.705q-.435.591-.861 1.193c-.185.26-.346.479-.472.673l-.072.11c-.152.235-.238.406-.282.559a.7.7 0 0 0-.03.314c.013.11.05.217.108.312q.046.07.1.138a1.6 1.6 0 0 0 .257.237 4.5 4.5 0 0 0 2.196.76 1.6 1.6 0 0 0 .349-.027 2 2 0 0 0 .163-.048.8.8 0 0 0 .278-.178.7.7 0 0 0 .17-.266c.059-.147.098-.335.123-.613l.012-.13c.02-.231.03-.502.045-.821q.037-.735.06-1.469l.033-.87a2.1 2.1 0 0 0-.055-.623 1 1 0 0 0-.117-.27Zm5.783 1.362a2.2 2.2 0 0 0-.498-.378l-.112-.067c-.199-.12-.438-.246-.719-.398q-.644-.353-1.295-.695l-.767-.407c-.04-.012-.08-.04-.118-.059a2 2 0 0 0-.466-.166 1 1 0 0 0-.17-.018.74.74 0 0 0-.725.616 1 1 0 0 0 .01.293c.038.204.13.406.224.583l.41.768q.341.65.696 1.294c.152.28.28.52.398.719q.036.057.068.112c.145.239.261.39.379.497a.73.73 0 0 0 .596.201 2 2 0 0 0 .168-.029 1.6 1.6 0 0 0 .325-.129 4 4 0 0 0 .855-.64c.306-.3.577-.63.788-1.006q.045-.08.076-.165a2 2 0 0 0 .051-.161q.019-.083.029-.168a.8.8 0 0 0-.038-.327.7.7 0 0 0-.165-.27"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 8: About Section ═══ -->
+    <section class="section" id="about" aria-label="About Us">
+      <div class="container">
+        <div class="split-section">
+          <div class="split-image fade-up">
+            <img src="assets/images/about-team-member.jpg" alt="MX Detail team member" width="600" height="500" loading="lazy">
+          </div>
+          <div class="split-text fade-up">
+            <span class="section-badge">About Us</span>
+            <h2>Most Excellent Auto Detail</h2>
+            <p>Serving the Tampa Bay and Central Florida area, MX Detail delivers premium auto detailing with meticulous attention to every surface. Our team of certified professionals uses industry-leading products and techniques to preserve, protect, and enhance your vehicle.</p>
+            <p>From Ceramic Pro nano-ceramic coatings to full interior restorations, we treat every vehicle like it's our own. Fully insured and equipped with steam machines, extractors, and professional-grade tools for the best results.</p>
+            <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 9: Certifications ═══ -->
+    <section class="section section-light" id="certifications" aria-label="Certifications">
+      <div class="container">
+        <div class="split-section reverse">
+          <div class="split-text fade-up">
+            <span class="section-badge">Certified</span>
+            <h2>Ceramic Pro Certified Installer</h2>
+            <p>MX Detail is an authorized Ceramic Pro installer, providing industry-leading nano-ceramic coating technology backed by manufacturer warranty. Our technicians have completed rigorous training to deliver perfect results every time.</p>
+            <p>Trust your vehicle to certified professionals who stand behind their work with guaranteed quality and lasting protection.</p>
+            <a href="ceramic-pro.html" class="btn btn-primary">Learn About Ceramic Pro</a>
+          </div>
+          <div class="split-image fade-up">
+            <img src="assets/images/aston-wheel-detail.jpg" alt="Aston Martin wheel detail with red calipers showcasing quality finish" width="600" height="500" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 10: Diagonal Divider ═══ -->
+    <div class="divider-diagonal" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <line x1="100" y1="60" x2="1440" y2="0" stroke="#007cba" stroke-width="2" opacity="0.4"/>
+        <line x1="0" y1="60" x2="1340" y2="5" stroke="#007cba" stroke-width="1.5" opacity="0.2"/>
+        <line x1="200" y1="60" x2="1440" y2="10" stroke="#007cba" stroke-width="1" opacity="0.15"/>
+      </svg>
+    </div>
+
+    <!-- ═══ SECTION 11: Social Parallax ═══ -->
+    <section class="parallax-cta" style="background-image: url('assets/images/parallax-dark-suv.jpg');" aria-label="Social media">
+      <div class="parallax-overlay"></div>
+      <div class="parallax-content container">
+        <h2>Follow Our Work</h2>
+        <p>See our latest transformations on social media</p>
+        <div class="social-icons">
+          <a href="https://facebook.com/mostexcellentdetail/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/officialmxdetail/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+          </a>
+          <a href="https://yelp.com/biz/most-excellent-auto-detailing-orlando" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
+            <svg viewBox="0 0 16 16"><path d="m4.188 10.095.736-.17.073-.02A.813.813 0 0 0 5.45 8.65a1 1 0 0 0-.3-.258 3 3 0 0 0-.428-.198l-.808-.295a76 76 0 0 0-1.364-.493C2.253 7.3 2 7.208 1.783 7.14c-.041-.013-.087-.025-.124-.038a2.1 2.1 0 0 0-.606-.116.72.72 0 0 0-.572.245 2 2 0 0 0-.105.132 1.6 1.6 0 0 0-.155.309c-.15.443-.225.908-.22 1.376.002.423.013.966.246 1.334a.8.8 0 0 0 .22.24c.166.114.333.129.507.141.26.019.513-.045.764-.103l2.447-.566zm8.219-3.911a4.2 4.2 0 0 0-.8-1.14 1.6 1.6 0 0 0-.275-.21 2 2 0 0 0-.15-.073.72.72 0 0 0-.621.031c-.142.07-.294.182-.496.37-.028.028-.063.06-.094.089-.167.156-.353.35-.574.575q-.51.516-1.01 1.042l-.598.62a3 3 0 0 0-.298.365 1 1 0 0 0-.157.364.8.8 0 0 0 .007.301q0 .007.003.013a.81.81 0 0 0 .945.616l.074-.014 3.185-.736c.251-.058.506-.112.732-.242.151-.088.295-.175.394-.35a.8.8 0 0 0 .093-.313c.05-.434-.178-.927-.36-1.308M6.706 7.523c.23-.29.23-.722.25-1.075.07-1.181.143-2.362.201-3.543.022-.448.07-.89.044-1.34-.022-.372-.025-.799-.26-1.104C6.528-.077 5.644-.033 5.04.05q-.278.038-.553.104a8 8 0 0 0-.543.149c-.58.19-1.393.537-1.53 1.204-.078.377.106.763.249 1.107.173.417.41.792.625 1.185.57 1.036 1.15 2.066 1.728 3.097.172.308.36.697.695.857q.033.015.068.025c.15.057.313.068.469.032l.028-.007a.8.8 0 0 0 .377-.226zm-.276 3.161a.74.74 0 0 0-.923-.234 1 1 0 0 0-.145.09 2 2 0 0 0-.346.354c-.026.033-.05.077-.08.104l-.512.705q-.435.591-.861 1.193c-.185.26-.346.479-.472.673l-.072.11c-.152.235-.238.406-.282.559a.7.7 0 0 0-.03.314c.013.11.05.217.108.312q.046.07.1.138a1.6 1.6 0 0 0 .257.237 4.5 4.5 0 0 0 2.196.76 1.6 1.6 0 0 0 .349-.027 2 2 0 0 0 .163-.048.8.8 0 0 0 .278-.178.7.7 0 0 0 .17-.266c.059-.147.098-.335.123-.613l.012-.13c.02-.231.03-.502.045-.821q.037-.735.06-1.469l.033-.87a2.1 2.1 0 0 0-.055-.623 1 1 0 0 0-.117-.27Zm5.783 1.362a2.2 2.2 0 0 0-.498-.378l-.112-.067c-.199-.12-.438-.246-.719-.398q-.644-.353-1.295-.695l-.767-.407c-.04-.012-.08-.04-.118-.059a2 2 0 0 0-.466-.166 1 1 0 0 0-.17-.018.74.74 0 0 0-.725.616 1 1 0 0 0 .01.293c.038.204.13.406.224.583l.41.768q.341.65.696 1.294c.152.28.28.52.398.719q.036.057.068.112c.145.239.261.39.379.497a.73.73 0 0 0 .596.201 2 2 0 0 0 .168-.029 1.6 1.6 0 0 0 .325-.129 4 4 0 0 0 .855-.64c.306-.3.577-.63.788-1.006q.045-.08.076-.165a2 2 0 0 0 .051-.161q.019-.083.029-.168a.8.8 0 0 0-.038-.327.7.7 0 0 0-.165-.27"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 12: Testimonial ═══ -->
+    <section class="section testimonial-section" aria-label="Featured testimonial">
+      <div class="container">
+        <div class="testimonial-card fade-up">
+          <div class="review-stars" style="font-size: 1.5rem; margin-bottom: 24px;">★★★★★</div>
+          <p class="testimonial-quote">"MX Detail transformed my vehicle. The ceramic coating they applied made my car look brand new, and months later it still shines like the day I picked it up. The team is professional, knowledgeable, and truly passionate about what they do."</p>
+          <p class="testimonial-author">— Satisfied Customer</p>
+          <p class="testimonial-role">Tampa, FL</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 13: Banner CTA ═══ -->
+    <section class="banner-cta" aria-label="Book now">
+      <div class="container">
+        <h2>Ready for Most Excellent Results?</h2>
+        <p>Book your appointment today and experience the difference.</p>
+        <a href="book-now.html" class="btn btn-primary btn-lg">Book Now</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ SECTION 14: Footer ═══ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div class="footer-col footer-col-brand">
+          <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="Most Excellent Auto Detail" class="nav-logo-img">
+          </div>
+          <p class="tagline">Preserve | Protect | Enhance</p>
+          <div class="social-icons">
+            <a href="https://facebook.com/mostexcellentdetail/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://instagram.com/officialmxdetail/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+            </a>
+            <a href="https://yelp.com/biz/most-excellent-auto-detailing-orlando" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
+              <svg viewBox="0 0 16 16"><path d="m4.188 10.095.736-.17.073-.02A.813.813 0 0 0 5.45 8.65a1 1 0 0 0-.3-.258 3 3 0 0 0-.428-.198l-.808-.295a76 76 0 0 0-1.364-.493C2.253 7.3 2 7.208 1.783 7.14c-.041-.013-.087-.025-.124-.038a2.1 2.1 0 0 0-.606-.116.72.72 0 0 0-.572.245 2 2 0 0 0-.105.132 1.6 1.6 0 0 0-.155.309c-.15.443-.225.908-.22 1.376.002.423.013.966.246 1.334a.8.8 0 0 0 .22.24c.166.114.333.129.507.141.26.019.513-.045.764-.103l2.447-.566zm8.219-3.911a4.2 4.2 0 0 0-.8-1.14 1.6 1.6 0 0 0-.275-.21 2 2 0 0 0-.15-.073.72.72 0 0 0-.621.031c-.142.07-.294.182-.496.37-.028.028-.063.06-.094.089-.167.156-.353.35-.574.575q-.51.516-1.01 1.042l-.598.62a3 3 0 0 0-.298.365 1 1 0 0 0-.157.364.8.8 0 0 0 .007.301q0 .007.003.013a.81.81 0 0 0 .945.616l.074-.014 3.185-.736c.251-.058.506-.112.732-.242.151-.088.295-.175.394-.35a.8.8 0 0 0 .093-.313c.05-.434-.178-.927-.36-1.308M6.706 7.523c.23-.29.23-.722.25-1.075.07-1.181.143-2.362.201-3.543.022-.448.07-.89.044-1.34-.022-.372-.025-.799-.26-1.104C6.528-.077 5.644-.033 5.04.05q-.278.038-.553.104a8 8 0 0 0-.543.149c-.58.19-1.393.537-1.53 1.204-.078.377.106.763.249 1.107.173.417.41.792.625 1.185.57 1.036 1.15 2.066 1.728 3.097.172.308.36.697.695.857q.033.015.068.025c.15.057.313.068.469.032l.028-.007a.8.8 0 0 0 .377-.226zm-.276 3.161a.74.74 0 0 0-.923-.234 1 1 0 0 0-.145.09 2 2 0 0 0-.346.354c-.026.033-.05.077-.08.104l-.512.705q-.435.591-.861 1.193c-.185.26-.346.479-.472.673l-.072.11c-.152.235-.238.406-.282.559a.7.7 0 0 0-.03.314c.013.11.05.217.108.312q.046.07.1.138a1.6 1.6 0 0 0 .257.237 4.5 4.5 0 0 0 2.196.76 1.6 1.6 0 0 0 .349-.027 2 2 0 0 0 .163-.048.8.8 0 0 0 .278-.178.7.7 0 0 0 .17-.266c.059-.147.098-.335.123-.613l.012-.13c.02-.231.03-.502.045-.821q.037-.735.06-1.469l.033-.87a2.1 2.1 0 0 0-.055-.623 1 1 0 0 0-.117-.27Zm5.783 1.362a2.2 2.2 0 0 0-.498-.378l-.112-.067c-.199-.12-.438-.246-.719-.398q-.644-.353-1.295-.695l-.767-.407c-.04-.012-.08-.04-.118-.059a2 2 0 0 0-.466-.166 1 1 0 0 0-.17-.018.74.74 0 0 0-.725.616 1 1 0 0 0 .01.293c.038.204.13.406.224.583l.41.768q.341.65.696 1.294c.152.28.28.52.398.719q.036.057.068.112c.145.239.261.39.379.497a.73.73 0 0 0 .596.201 2 2 0 0 0 .168-.029 1.6 1.6 0 0 0 .325-.129 4 4 0 0 0 .855-.64c.306-.3.577-.63.788-1.006q.045-.08.076-.165a2 2 0 0 0 .051-.161q.019-.083.029-.168a.8.8 0 0 0-.038-.327.7.7 0 0 0-.165-.27"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Tampa -->
+        <div class="footer-col">
+          <h4>Tampa</h4>
+          <p>Tampa, FL</p>
+          <a href="tel:8137588918">(813) 758-8918</a>
+          <a href="mailto:alex.weitkamp@yahoo.com">alex.weitkamp@yahoo.com</a>
+        </div>
+
+        <!-- Column 3: Orlando -->
+        <div class="footer-col">
+          <h4>Orlando</h4>
+          <p>Orlando, FL</p>
+          <a href="tel:8134394361">(813) 439-4361</a>
+          <a href="mailto:ebenmxdetail@gmail.com">ebenmxdetail@gmail.com</a>
+        </div>
+
+        <!-- Column 4: Hours -->
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon – Sat: 7am – 6pm</p>
+          <p>Sunday: Closed</p>
+        </div>
+
+        <!-- Column 5: Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="ceramic-pro.html">Ceramic Pro</a>
+          <a href="packages.html">Packages</a>
+          <a href="book-now.html">Book Now</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <span>&copy; <script>document.write(new Date().getFullYear())</script> Most Excellent Auto Detail. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js" defer></script>
+
 </body>
 </html>
